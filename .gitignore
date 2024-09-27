@@ -8,6 +8,9 @@
 *.so
 *.dylib
 
+# Ignore test Uploads file
+*/uploads/*
+
 # Test binary, built with `go test -c`
 *.test
 
