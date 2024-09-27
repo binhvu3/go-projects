@@ -8,7 +8,7 @@ go build main.go
 
 ```
 
-## Movies Name and Directors Listing
+##  Movie Name Update
 Live update of Title and Director name to a database.
 ### Commands:
 ```
