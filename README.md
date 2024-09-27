@@ -1,9 +1,31 @@
 # GoLang Projects Repo
-## htmx Upload Server
 ```
-Commands to run program.
+# Compile go code into binary
+go build main.go
 
-# Run go program
-go run main.go 
+# Run compile program
+./main
+
 ```
-- The command above run at port :8080. localhost:8080
+
+## Movies Name and Directors Listing
+Live update of Title and Director name to a database.
+### Commands:
+```
+# Run go code directly
+go run main.go
+
+```
+- Open `localhost:8000`
+
+---
+
+## htmx Upload Server
+Browse, Upload, and Saved uploaded file to particular directory.
+### Commands
+```
+# Run go program
+go run main.go
+```
+- Open `localhost:8080`
+- [Reference](https://dev.to/coderonfleek/file-uploads-with-htmx-and-golang-57ad)
