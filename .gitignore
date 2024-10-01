@@ -11,6 +11,12 @@
 # Ignore test Uploads file
 */uploads/*
 
+# Ignore all modules
+*/node_modules/*
+
+# Ignore keys
+*/credentials/*
+
 # Test binary, built with `go test -c`
 *.test
 
