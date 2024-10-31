@@ -23,23 +23,32 @@ type Todo struct {
 var collection *mongo.Collection
 
 func main() {
-	fmt.Println("Hello!")
-
+	// Load in Enviroment Variables
 	err := godotenv.Load(".env")
+
 	if err != nil {
 		log.Fatal("Error Loading .env file")
 	}
 
 	MONGODB_URI := os.Getenv("MONGODB_URI")
+
+	if MONGODB_URI == "" {
+		log.Fatal("Must set your 'MONGODB_URI' enviroment in .env")
+	}
+
 	opts := options.Client().ApplyURI(MONGODB_URI)
+
+	// Establish connection with MongoDB
 	client, err := mongo.Connect(context.Background(), opts)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// Close down connection after main() end
 	defer client.Disconnect(context.Background()) // Disconnect
 
+	// Send a test ping to connected
 	err = client.Ping(context.Background(), nil)
 
 	if err != nil {
@@ -48,6 +57,7 @@ func main() {
 
 	fmt.Println("Connected to MONGODB ATLAS")
 
+	// Establised a new database and collection
 	collection = client.Database("golang_db").Collection("todos")
 
 	app := fiber.New()
@@ -61,6 +71,7 @@ func main() {
 		port = "5000"
 	}
 
+	// Serves HTTP request out of choosen port
 	log.Fatal(app.Listen("0.0.0.0:" + port))
 }
 
@@ -126,7 +137,6 @@ func updateTodo(c *fiber.Ctx) error {
 	}
 
 	return c.Status(200).JSON(fiber.Map{"status": "success"})
-
 }
 
 func deleteTodo(c *fiber.Ctx) error {
@@ -146,5 +156,4 @@ func deleteTodo(c *fiber.Ctx) error {
 	}
 
 	return c.Status(200).JSON(fiber.Map{"Status": "Deleted Sucessfuly"})
-
 }
