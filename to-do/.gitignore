@@ -26,3 +26,9 @@ go.work.sum
 
 # Ignore tmp folder
 */tmp/*
+
+# ignore log
+.log
+
+# Compiled binary for packages and commands
+/bin/

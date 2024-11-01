@@ -71,8 +71,8 @@ func main() {
 		port = "5000"
 	}
 
-	// Serves HTTP request out of choosen port
-	log.Fatal(app.Listen("0.0.0.0:" + port))
+	// Serves HTTP request out of choosen port (0.0.0.0):[any ipv4 addresses] or (127.0.0.1):[localhost]
+	log.Fatal(app.Listen("127.0.0.1:" + port))
 }
 
 func getTodos(c *fiber.Ctx) error {
