@@ -15,6 +15,10 @@ const TodoItem = ({ todo }: { todo: Todo}) => {
 				try{
 					const res = await fetch(BASE_URL + `/todos/${todo._id}`,{
 						method:"PATCH",
+						headers:{
+							"Content-Type":"application/json",
+						},
+						body: JSON.stringify({completed:true}),
 
 					})
 					const data = await res.json()
