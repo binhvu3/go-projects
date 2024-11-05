@@ -1,7 +1,9 @@
 import { Button, Container, Stack } from '@chakra-ui/react'
 import NavBar from './components/NavBar'
 import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
 
+export const BASE_URL = "http://localhost:5000/api";
 function App() {
 
   return (
@@ -9,7 +11,7 @@ function App() {
       <NavBar />
       <Container>
         <TodoForm />
-        {/* <TodoList />  */}
+        <TodoList /> 
       </Container>
     </Stack>
   )
