@@ -15,7 +15,10 @@ uploads/
 node_modules/
 
 # Ignore keys
-credentials
+credentials/
+
+# ignore all tmp directories
+tmp/
 
 # Test binary, built with `go test -c`
 *.test
