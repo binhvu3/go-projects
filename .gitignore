@@ -9,13 +9,13 @@
 *.dylib
 
 # Ignore test Uploads file
-*/uploads/*
+uploads/
 
 # Ignore all modules
-*/node_modules/*
+node_modules/
 
 # Ignore keys
-*/credentials/*
+credentials
 
 # Test binary, built with `go test -c`
 *.test
