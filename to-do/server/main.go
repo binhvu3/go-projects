@@ -65,7 +65,7 @@ func main() {
 
 	app := fiber.New()
 
-	if os.Getenv("ENV") == "development" {
+	if os.Getenv("ENV") != "production" {
 		app.Use(cors.New(cors.Config{
 			AllowOrigins: "http://localhost:5173",
 			AllowHeaders: "Origin, Content-Type, Accept",
@@ -87,7 +87,7 @@ func main() {
 	}
 
 	// Serves HTTP request out of choosen port (0.0.0.0):[any ipv4 addresses] or (127.0.0.1):[localhost]
-	log.Fatal(app.Listen("127.0.0.1:" + port))
+	log.Fatal(app.Listen("0.0.0.0:" + port))
 }
 
 func getTodos(c *fiber.Ctx) error {
